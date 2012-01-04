@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>TreeJS</title>
+	
+	<link rel="stylesheet" href="styles/menu.css" type="text/css">
+	<link rel="stylesheet" href="styles/TreeJS.css" type="text/css">
+	
+	<script src="TreeJS.js"></script>
+	<script src="datasets/dataset_nofolders.js"></script>
+	<script src="templates/default_template.js"></script>
+	
+	<script type="text/javascript">
+		
+		var Tree = new TreeJS(template);
+		
+		window.onload = function() {
+			
+			Tree.update(dataset_nofolders);
+			
+			Tree.appendTo(document.body);
+			
+		}
+		
+	</script>
+	
+</head>
+<body>
+
+<ul class="menu">
+	<li><a onclick="Tree.update(dataset_nofolders);return false;">Reset data</a></li>
+	<li><a onclick="Tree.openAllBranches();return false;">Expand all</a></li>
+	<li><a onclick="Tree.closeAllBranches();return false;">Collapse all</a></li>
+	<li><a onclick="Tree.selectAll();return false;">Select all</a></li>
+	<li><a onclick="Tree.selectNone();return false;">Deselect all</a></li>
+	<li><a onclick="Tree.addNode('Folder11/',{name:'Folder11'});Tree.addNode('Folder11/ItemX',{name:'ItemX'});">Add Folder11...</a></li>
+	<li><a onclick="while(Tree.selection[0]){Tree.removeNode(Tree.selection[0]);}return false;">Remove selected nodes</a></li>
+</ul>
+
+</body>
+</html>

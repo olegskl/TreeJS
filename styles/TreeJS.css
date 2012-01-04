@@ -1,0 +1,156 @@
+/* ------------------------------------------- RESET ------------------------------------------ */
+
+html,body,div,dl,dt,dd,ul,ul,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,table,th,td{margin:0;padding:0;}
+img,body,html{border:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+table{border-collapse:collapse;}
+ul,li{list-style:none;}
+
+/* ------------------------------------------ GLOBAL ------------------------------------------ */
+
+html {
+	font-size:11px;
+	font-family:tahoma;
+	background:#f5f5f5;
+}
+
+body {
+	background:#fff;
+}
+
+/* ------------------------------------------- MAIN ------------------------------------------ */
+
+
+table {
+	width:100%;
+	border-collapse:collapse;
+	table-layout:fixed;
+	
+	color:#666;
+	font-size:11px;
+}
+	th, td {
+		padding:0;
+		height:25px;
+		white-space:nowrap;
+		overflow:hidden;
+	}
+	
+	th {
+		height:17px;
+		border-left: 1px dotted #dadada;
+		background:#f5f5f5;
+	}
+	
+	th>a {
+		display:block;
+		padding:0 5px;
+		text-align:left;
+		font-size:10px;
+		line-height:16px;
+		font-weight:normal;
+		cursor:pointer;
+		border-bottom:solid 1px #eaeaea;
+	}
+		th.MyTree-sortasc>a {
+			padding-left:18px;
+			background-image:url('../images/sort_asc.gif');
+			background-position:5px center;
+			background-repeat:no-repeat;
+		}
+		th.MyTree-sortdesc>a {
+			padding-left:18px;
+			background-image:url('../images/sort_desc.gif');
+			background-position:5px center;
+			background-repeat:no-repeat;
+		}
+		
+		th a:hover {
+			color:#333;
+			border-bottom:solid 1px #ddd;
+			background-color:#f1f1f1;
+		}
+	
+	td {
+		padding:0 5px;
+		border-top: 1px solid #ffffff;
+		border-bottom:1px solid #eaeaea;
+		border-left: 1px dotted #eaeaea;
+		text-align:left;
+	}
+	
+	td>a.MyTree-expandController {
+		display:inline-block;
+		float:left;
+		margin:4px 0 2px 2px;
+		width:16px;
+		height:16px;
+		cursor:pointer;
+		background-image:url("../images/icon_expand.gif");
+		background-position:center top;
+	}
+		td>a.MyTree-expandController:hover {
+			background-position:center bottom;
+		}
+		
+		tr.MyTree-branchIsOpen>td a.MyTree-expandController {
+			background-image:url("../images/icon_collapse.gif");
+		}
+	
+	td>a.MyTree-selectController {
+		display:inline-block;
+		margin:2px 0;
+		font-weight:bold;
+		padding:3px 7px 3px 22px;
+		
+		border:1px solid transparent;
+		background-position:3px center;
+		background-repeat:no-repeat;
+		
+		-webkit-border-radius:2px;
+		-moz-border-radius:2px;
+		border-radius:2px;
+		cursor:pointer;
+	}
+		td>a.MyTree-selectController:hover {
+			color:#fff;
+			border:1px solid #7397D0;
+			background-color:#97B1DD;
+		}
+	
+		tr.MyTree-selectedNode>td a.MyTree-selectController {
+			color:#fff;
+			border:1px solid #3079ED;
+			background-color:#4D90FE;
+		}
+	
+	tr.MyTree-folder>td>a.MyTree-selectController {
+		background-image:url('../images/folder.png');
+	}
+	tr.MyTree-leaf>td>a.MyTree-selectController {
+		background-image:url('../images/help.png');
+	}
+
+
+	tr.MyTree-leaf>td>a.MyTree-DefaultLeafType {
+		background-image:url('../images/report.png');
+	}	
+	
+	th.MyTree-name, td.MyTree-name { width:200px; }
+	th.MyTree-name>a, td.MyTree-name { text-align:left; }
+	
+	th.MyTree-status, td.MyTree-status { width:50px; }
+	th.MyTree-status>a, td.MyTree-status { text-align:center; }
+	
+	th.MyTree-first, td.MyTree-first { width:60px; }
+	th.MyTree-first>a, td.MyTree-first { text-align:right; }
+	
+	th.MyTree-second, td.MyTree-second { width:60px; }
+	th.MyTree-second>a, td.MyTree-second { text-align:right; }
+	
+	th.MyTree-third, td.MyTree-third { width:58px; }
+	th.MyTree-third>a, td.MyTree-third { text-align:right; }
+	
+	/* the "description" field doesn't have any custom style */
