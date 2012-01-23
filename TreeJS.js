@@ -1,7 +1,7 @@
 /**
  * @fileOverview This file contains a TreeJS class.
  * @author <a href="mailto:sklyanchuk@gmail.com">Oleg Sklyanchuk</a>
- * @version 0.3.1
+ * @version 0.3.2
  */
 
 /**
@@ -174,10 +174,10 @@ TreeJS.prototype.setTemplate = function(template) {
 }
 
 /**
- *    Update the tree with new data.
- *    
- *    @param {Object} newData A valid TreeJS dataset.
- *    @returns {Boolean} True on successful update; False on failure.
+ * Updates the tree with new data.
+ * 
+ * @param {Object} newData A valid TreeJS dataset.
+ * @returns {Boolean} True on successful update; False on failure.
  */
 
 TreeJS.prototype.update = function(newData) {
@@ -432,11 +432,11 @@ TreeJS.prototype.updateNodePosition = function(nodeId) {
 }
 
 /**
- *    Updates all cells of a node (and their references) with new data.
- *    
- *    @param {String} nodeId A valid ID of a node to update.
- *    @param {Object} nodeData An associative array of values to put into cells.
- *    @returns {Boolean} TRUE on successful update; FALSE on failure.
+ * Updates all cells of a node (and their references) with new data.
+ * 
+ * @param {String} nodeId A valid ID of a node to update.
+ * @param {Object} nodeData An associative array of values to put into cells.
+ * @returns {Boolean} TRUE on successful update; FALSE on failure.
  */
 
 TreeJS.prototype.updateNode = function(nodeId, nodeData) {
@@ -477,10 +477,10 @@ TreeJS.prototype.updateNode = function(nodeId, nodeData) {
 }
 
 /**
- *    Removes existing node, its children, and their references from the tree.
- *    
- *    @param {String} nodeId A valid ID of a node to remove.
- *    @returns {Boolean} TRUE on successful removal; FALSE on failure.
+ * Removes existing node, its children, and their references from the tree.
+ * 
+ * @param {String} nodeId A valid ID of a node to remove.
+ * @returns {Boolean} TRUE on successful removal; FALSE on failure.
  */
 
 TreeJS.prototype.removeNode = function(nodeId) {
@@ -567,14 +567,14 @@ TreeJS.prototype.getParentIdOf = function(nodeId) {
 }
 
 /**
- *    (Re)sets a cell value and its reference in the tree dataset.
- *    
- *    @param {String} nodeId A valid ID of a node with a cell to update.
- *    @param {String} columnId A valid ID of a cell column.
- *    @param {String|Number|Null} cellValue Value to put inside of the cell.
+ * (Re)sets a cell value and its reference in the tree dataset.
+ * 
+ * @param {String} nodeId A valid ID of a node with a cell to update.
+ * @param {String} columnId A valid ID of a cell column.
+ * @param {String|Number|Null} cellValue Value to put inside of the cell.
  *    Must be of 'number', 'string' type OR null OR undefined.
  *    The latter two will be converted to defaultValue if any.
- *    @returns {Boolean} TRUE on success; FALSE on failure.
+ * @returns {Boolean} TRUE on success; FALSE on failure.
  */
 
 TreeJS.prototype.setCellValue = function(nodeId, columnId, cellValue) {
@@ -644,10 +644,10 @@ TreeJS.prototype.setCellValue = function(nodeId, columnId, cellValue) {
 }
 
 /**
- *    Appends the tree to a DOM element.
- *    
- *    @param {Object} node A valid DOM node (nodeType = 1).
- *    @returns {Boolean} TRUE on successful append; FALSE on failure.
+ * Appends the tree to a DOM element.
+ * 
+ * @param {Object} node A valid DOM node (nodeType = 1).
+ * @returns {Boolean} TRUE on successful append; FALSE on failure.
  */
 
 TreeJS.prototype.appendTo = function(node) {
@@ -1536,7 +1536,7 @@ TreeJS.prototype.init = function() {
     // Clean up and destroy the table node if it has been already set:
     if (this.containerNode) {
         try {
-            destroyElement(this.containerNode);
+            this._destroyElement(this.containerNode);
         } catch(e) {
             this.onError('Unable to initialize. Failed to remove table node. ' + e);
             return false;
@@ -1597,12 +1597,9 @@ TreeJS.prototype.removeHeader = function() {
     }
     
     // Attempt to destroy the header node:
-    try {
-        destroyElement(this.header.containerNode);
-    } catch(e) {
-        this.onError('Failed to remove header. ' + e);
-        return false;
-    }
+    if (!this._destroyElement(this.header.containerNode)) {
+		return false;
+	}
     
     // Reset the header reference object:
     // (this clears up all the node references it contained)
