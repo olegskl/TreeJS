@@ -1,9 +1,0 @@
-TreeJS is a framework-independent, javascript-enabled hierarchical table.
-
-Usage example:
-
-var Tree = new TreeJS(template, dataset);
-
-    Tree.appendTo(document.body);
-
-    Tree.update(newDataset);

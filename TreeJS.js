@@ -1534,13 +1534,8 @@ TreeJS.prototype._addHeaderCell = function(columnId, columnPosition) {
 TreeJS.prototype.init = function() {
     
     // Clean up and destroy the table node if it has been already set:
-    if (this.containerNode) {
-        try {
-            this._destroyElement(this.containerNode);
-        } catch(e) {
-            this.onError('Unable to initialize. Failed to remove table node. ' + e);
-            return false;
-        }
+    if (this.containerNode && !this._destroyElement(this.containerNode)) {
+        return false;
     }
     
     // Remove all node references:
