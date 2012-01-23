@@ -81,7 +81,7 @@ function TreeJS(template, dataset) {
     if (template && this.setTemplate(template)) {
         
         // Attempt to inject dataset if it's available:
-        //  - Note that it is not allowed to use .update() method if there's no template
+        //  - Note that the .update() method is unaccessible if there's no template
         if (dataset) {
             this.update(dataset);
         }
