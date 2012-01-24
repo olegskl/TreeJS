@@ -2,20 +2,21 @@
  * @fileOverview This file contains a TreeJS class.
  * @author <a href="mailto:sklyanchuk@gmail.com">Oleg Sklyanchuk</a>
  * @version 0.3.2
+ * @license MIT License
  */
 
 /**
  * Creates a new TreeJS object.
  * @constructor
- * @param {Object} [template] A TreeJS template. Can be set later with .setTemplate() method.
- * @param {Object} [dataset] Complete tree dataset. Can be set later with .update() method.
+ * @param {Object} [template] TreeJS template. Can be set later with .setTemplate() method.
+ * @param {Object} [dataset] TreeJS dataset. Can be set later with .update() method.
  * @returns {Void}
  */
 
 function TreeJS(template, dataset) {
     
     /**
-     * A character that defines hierarchy within object IDs.
+     * Directory separator within object IDs.
      * @constant
      * @type {String}
      * @example {'foo/': {'name': 'foo'}} defines a root node "foo" (note the "/").
